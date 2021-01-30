@@ -6,7 +6,7 @@ if [ $EUID -ne 0 ]; then
 fi
 
 curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
-#sudo bash nodesource_setup.sh
+sudo bash nodesource_setup.sh
 echo "Setup nginx"
 sudo apt install nginx nodejs -y
 sudo cp -r * /var/www/html/
