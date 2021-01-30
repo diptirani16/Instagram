@@ -6,7 +6,7 @@ if [ $EUID -ne 0 ]; then
 fi
 
 curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
+#sudo bash nodesource_setup.sh
 echo "Setup nginx"
 sudo apt install nginx nodejs -y
 sudo cp -r * /var/www/html/
@@ -22,6 +22,13 @@ sudo rm -rfv "$dbdir"
 mkdir "$dbdir"
 cd "$dbdir"
 
+if [ $# -eq 0 ]; then
+	ipaddr=$(ip a s eth0 | grep -w inet| tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1)
+else
+	ipaddr=$(ip a s $1 | grep -w inet| tr -s " " | cut -d " " -f 3 | cut -d "/" -f 1)
+fi
+find /var/www/html/ -type f -exec sed -i "s/localhost/$ipaddr/g" {} \;
+find $dbdir -type f -exec sed -i "s/localhost/$ipaddr/g" {} \;
 cat >"$packagejson" <<EOF
 {
   "name": "$dbdirname",
@@ -30,7 +37,7 @@ cat >"$packagejson" <<EOF
   "main": "$indexjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "json-server --watch db.json"
+    "start": "json-server --host $ipaddr db.json"
   },
   "author": "",
   "license": "ISC"
