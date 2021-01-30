@@ -1,0 +1,107 @@
+@media screen and (max-width: 420px){
+    body{
+        text-align: center;
+        background-color: rgb(253, 252, 252);
+        /* position: fixed; */
+    }
+    h1{
+        text-align: center;
+        margin: 22px auto 35px;
+        color: rgb(20, 20, 20);
+    }
+    .main-container{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        /* background-color: red; */
+        height: 100vh;
+    }
+    .container{
+        margin-top: 4vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .main-area{
+        margin-top: 1vh;
+        height: 60vh;
+    }
+    .signup-container, .ad{
+        height: 8vh;
+    }
+    .details{
+        margin-top: 6vh;
+    }
+    .details div{
+        margin-top: 1.5vh;
+    }
+    input{
+        width: 70vw;
+        height: 6vh;
+        font-size: 13px;
+        padding: 4px;
+    
+    }
+    .login button{
+        margin-top: 2vh;
+        width: 72vw;
+        height: 5vh;
+        background-color: #0095f6;
+        border: 1px #0095f6;
+        color: white;
+        font-weight: 800;
+    }
+    .or-container{
+        display: flex;
+        justify-content: space-around;
+    }
+    .or-container div{
+        font-size: 14px;
+        color: rgb(70, 68, 68);
+        font-weight: 600;
+        /* height: 1px; */
+    }
+    .line{
+        width: 20%;
+        background-color: rgb(102, 102, 102);
+        height: 1px;
+        align-self: center;
+
+    }
+    .facebook button{
+        background-color: white;
+        border: 1px white;
+        color: #2e59b1;
+        font-weight: 800;
+        font-size: 14px;
+        font-family: sans-serif;
+        margin-top: 4vh;
+    }
+    .forgot-password{
+        font-size: 13px;
+        font-family: sans-serif;
+        text-decoration: none;
+        color:  #2e59b1;
+        margin-top: 4vh;
+    }
+    .signup-container{
+        margin-top: 7vh;
+        font-family: sans-serif;
+        font-stretch: narrower;
+        color: rgb(29, 29, 29);
+        font-size: 15px;
+    }
+    .signup-container a{
+        text-decoration: none;
+        color:  #0095f6;
+        font-weight: 800;
+    }
+    .ad{
+        font-family: sans-serif;
+        font-stretch: narrower;
+        font-size: 15px;
+        color: rgb(29, 29, 29);
+    }
+    .ad span{
+        margin: 1vw;
+    }
+}
