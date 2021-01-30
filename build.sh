@@ -6,8 +6,7 @@ if [ $EUID -ne 0 ]; then
 fi
 
 echo "Setup nginx"
-sudo apt install nginx
-sudo apt install npm
+sudo apt install nginx npm -y
 sudo cp -r * /var/www/html/
 
 basedir=$(cd "$(dirname $0)" > /dev/null 2>&1 && pwd)
@@ -17,7 +16,7 @@ dbdir="$basedir/../$dbdirname"
 packagejson="$dbdir/package.json"
 indexjs="index.js"
 dbjson="$dbdir/db.json"
-sudo rm-rfv "$dbdir"
+sudo rm -rfv "$dbdir"
 mkdir "$dbdir"
 cd "$dbdir"
 
