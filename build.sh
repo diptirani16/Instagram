@@ -5,8 +5,10 @@ if [ $EUID -ne 0 ]; then
 		exit 1
 fi
 
+curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
 echo "Setup nginx"
-sudo apt install nginx node -y
+sudo apt install nginx nodejs -y
 sudo cp -r * /var/www/html/
 
 basedir=$(cd "$(dirname $0)" > /dev/null 2>&1 && pwd)
